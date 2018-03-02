@@ -1,0 +1,11 @@
+Elabora un trabajo de investigación sobre alguno de los temas propuestos.
+
+Elabora un cuestionario de 10 preguntas de opción múltiple en formato GIFT.
+
+Se valorará:
+
+    Contenido
+    Publicación
+    Presentación
+
+Bases de datos distribuidas (Lleno)Bases de datos NoSQL (Lleno)Herramientas case (Lleno)

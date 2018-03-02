@@ -1,0 +1,39 @@
+Ficheros.
+
+Medios de almacenamiento
+3 niveles:
+
+Primario (Registros)
+
+Secundario: (Disco Duro, RAM)
+
+Terciario: Sistemas de almacenamiento distribuidos
+
+El objetivo es minimizar el número de accesos a disco, es lo más lento al poseer elementos mecánicos (con excepción de los SSD), puede ralentizar el sistema.
+
+Cada Sistema de Base de Datos tiene una forma de almacenar la información en forma de ficheros.
+
+Ficheros.
+Conceptos básicos:
+
+Discos magnéticos:
+
+Controladora de disco: Unidad física en que está contenido el medio de grabación del disco.
+
+Volumen: Paquete de discos gestionados por una controladora.
+
+Superficies: Superficies grabables (discos) montados sobre un eje que posee el volumen.
+
+Pistas: Corona circular en una superficie
+
+Cilindros: Conjunto de pistas con el mismo diámetro en las diferentes superficies.
+
+Sectores: Divisiones físicas de las pistas. Son las unidades más pequeñas de espacio que se pueden direccionar.
+
+Clusters: Es una cantidad fija de sectores contiguos, y constituyen la unidad de espacio más pequeña que se puede asignar a un fichero.El gestor de ficheros ve un fichero como un conjunto de clusters, información que se encuentra almacenada en la tabla de particiones(FAT, NTFS). Una vez se localiza un cluster, no hay que mover las cabezas para leer todos sus sectores.
+
+Extent. Trozo de fichero formado por varios clusters contiguos. Mediante ellos se pretende enfatizar más la contigüidad física de los sectores. Cuanto más haya, más desperdigado estará el fichero , por tanto, más tiempo se dedicará a mover las cabezas de lectura/escritura
+
+
+
+Bloques: Son divisiones lógicas, y por lo tanto, su tamaño es variable. Este tamaño puede ser distinto para cada aplicación,

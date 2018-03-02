@@ -1,0 +1,16 @@
+Bases de datos NoSQL. Elige la opción que mejor se adapte a tus necesidades
+
+https://www.genbetadev.com/bases-de-datos/bases-de-datos-nosql-elige-la-opcion-que-mejor-se-adapte-a-tus-necesidades
+
+UnQL, un lenguaje de consulta unificado para todas las bases de datos NoSQL
+
+https://www.genbetadev.com/bases-de-datos/unql-un-lenguaje-de-consulta-unificado-para-todas-las-bases-de-datos-nosql
+
+MongoDB: qué es, cómo funciona y cuándo podemos usarlo (o no)
+
+https://www.genbetadev.com/bases-de-datos/mongodb-que-es-como-funciona-y-cuando-podemos-usarlo-o-no
+
+El concepto NoSQL, o cómo almacenar tus datos en una base de datos no relacional
+
+https://www.genbetadev.com/bases-de-datos/el-concepto-nosql-o-como-almacenar-tus-datos-en-una-base-de-datos-no-relacional
+

@@ -1,0 +1,66 @@
+﻿Podemos señalar como ventaja de un sistema de base de datos:{~wrong answer ~%50%half credit answer =full credit answer}{
+		~El coste de migración.          #Los costes de migración son caros tanto en hardware como en software en un SBD.
+    ~%50%La gestión y control descentralizada. #La gestión y control son importantes, si se da de manera centralizada.
+    =El número de redundancias disminuye.      #¡Correcto!}
+		
+Une los siguientes conceptos.{
+    =Base de datos. -> Colección organizada de datos.
+    =Sistema de base de datos.  -> SGBD y base de datos.
+    =Sistema de gestión de base de datos.  -> Conjunto de programas de gestion
+mantenimiento y acceso.}
+
+Indica si las siguientes expresiones son verdaderas o falsas.{
+Las descripciones física y lógica en una base de datos tienen una implantación asequible.{F}
+La información referencial nos dirige directamente a la información que queremos encontrar.{F}
+En las bases de datos actuales no existe redundancia física.{F}
+La redundancia física implica redundancia lógica. {T}
+La redundancia lógica también provoca redundancia física.{F}
+}
+
+Las cualidades de una información útil son:{~wrong answer ~%50%half credit answer =full credit answer}{
+	~%-100% Ninguna de las anteriores #Si no recuerdas ninguna, hay que repasar más
+	~%25% Finita.
+	~%-25% Abundante. #Para que el ordenador aporte unos resultados precisos, es necesario introducir datos igualmente precisos, dado que éste sólo puede mejorarlos de forma muy limitada.
+	~%25% Coherente.
+	~%25% Compresible.
+	~%-25% Volátil. #Al contrario, debe poseer disponibilidad.
+	~%-25% Contradictori.a #El sistema de información debe carecer de contradicciones, la información debe ser coherente en sí misma.
+	~%25% Confidencial.
+	~%25% Seguridad.}
+
+El nivel interno compuesto por las vistas de los distintos grupos de usuarios sobre la base de datos:{
+Verdadero.{F}
+Falso.{T}
+}
+
+El nivel conceptual estudia las necesidades de los usuarios y la definición de las clases de los datos:{
+Verdadero.{T}
+Falso.{F}
+}
+
+El lenguaje huésped es un lenguaje principal para desarrollar la actividad necesaria con la base de datos.{
+Verdadero.{F}
+Falso.{T}
+}
+
+Relaciona las siguientes funciones con su definición.{
+    =Descripción: -> Especifica los elementos de datos que la integran, su estructura, reglas de integridad semántica y controles de acceso.
+    =Manipulación:  -> Permite a los usuarios 
+buscar, añadir, suprimir o modificar los datos.
+    =Utilización:  -> Proporciona las interfaces a los usuarios y procedimientos al administrador, incluido el LCD.}
+		
+Los componentes principales de un SGBD son:{
+
+Control de {~daños ~evaluación =autorización}.
+Procesador de{~textos ~instucciones =comandos}.
+Optimizador de {~transacciones ~librerías =consultas}.
+Gestor de {~enumeraciones ~procesamientos =transacciones}.
+Gestor de {~direcciones ~evaluación =recuperación}.
+Gestor de {~licencias ~bibliotecas =bufetes}.
+}
+
+Diferencias entre el LDD y LMD{
+
+Cuando hablamos de LDD decimos que este es el {~Lenguaje de Descripción de Datos  =Lenguaje de Definición de Datos  ~Lenguaje de Desarrollo de Datos}
+Cuando hablamos de LMD decimos que este es el {~Lenguaje de Memorización de Datos  =Lenguaje de Manipulación de Datos  ~Lenguaje de Marcado de Datos}
+}

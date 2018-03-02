@@ -1,0 +1,9 @@
+Trabajo de investigación: Desarrolla un análisis comparativo de los sistemas gestores de bases de datos relacionales actuales. De los SBGDR estudiados, ¿cuál seleccionarías para su implementación en la base de datos de nuestro centro?
+
+Elabora un cuestionario de 10 preguntas de opción múltiple en formato GIFT.
+
+Se valorará:
+
+    Contenido.
+    Publicación.
+    Presentación.
