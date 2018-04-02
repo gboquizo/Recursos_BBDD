@@ -69,7 +69,7 @@ BEGIN
   /**
       Imprimimos por consola un mensaje, para comprobar que todo esta correcto.
   **/
-  
+
   DBMS_OUTPUT.PUT_LINE('Hoy a fecha de ' || fActual || ' tienes ' || edad || ' años.' );
 
 END;
