@@ -1,0 +1,66 @@
+-- AUTOR: JESÚS MEJIAS LEIVA --
+
+--Escribe una consulta sql que liste código, nombre y apellido de los empleados y susrespectivos jefes con título Empleado y Jefe. 
+SELECT EMPLOYEE_ID, FIRST_NAME AS NOMBRE , LAST_NAME AS EMPLEADO, MANAGER_ID AS JEFE
+FROM EMPLOYEES;
+
+-- Escribe una consulta que liste los empleados de los departamentos 10, 20 y 80 que fueroncontratados hace más de 180 días, ganan una comisión mayor al 20% y cuyo nombre oapellido comienza con la letra ‘J’.
+SELECT EMPLOYEE_ID
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 10 OR
+DEPARTMENT_ID = 20 OR
+DEPARTMENT_ID = 80 AND 
+(SYSDATE - HIRE_DATE) > 180
+AND COMMISSION_PCT > 0.2 AND
+lower(FIRST_NAME) LIKE 'j%';
+
+-- Consulta que incremente un 30% el salario de los empleados que trabajan en el departamento de SMITH.
+
+UPDATE EMPLOYEES
+SET SALARY = SALARY * 1.30
+WHERE DEPARTMENT_ID IN
+(SELECT DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'SMITH');
+
+-- Desarrolla una consulta que muestre el código del departamento con titulo Código del departamento, que cuente los empleados agrupados por departamentos y ordenados por código de departamento.
+
+SELECT DEPARTMENT_ID AS CODIGO_DEPARTAMENTO, COUNT(EMPLOYEE_ID)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID ORDER BY DEPARTMENT_ID;
+
+-- Consulta que muestre solo los nombres de los empleados que no se repiten.
+
+SELECT e1.FIRST_NAME
+FROM EMPLOYEES e1, EMPLOYEES e2
+WHERE e1.EMPLOYEE_ID = e2.EMPLOYEE_ID
+AND e1.FIRST_NAME <> e2.FIRST_NAME;
+
+-- Borrar los empleados de los departamentos ubicados en DALLAS.
+
+DELETE FROM EMPLOYEES
+WHERE EMPLOYEES.DEPARTMENT_ID IN
+(SELECT DEPARTMENT_ID
+FROM DEPARTMENTS , LOCATIONS
+WHERE DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID AND
+LOCATIONS.CITY = 'DALLAS');
+
+-- Elabora una consulta que muestre el código del departamento con titulo “Código del departamento”, que cuente los empleados por departamento de aquellos departamentos que tengan más de 10 empleados
+
+SELECT DEPARTMENT_ID AS CODIGO_DEPARTAMENTO , COUNT(*) AS NUMERO_EMPLEADOS
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID HAVING COUNT(*) > 10;
+
+-- Elabora una consulta que muestre el código del departamento, el nombre de departamento y el salario máximo de cada departamento.
+
+SELECT EMPLOYEES.DEPARTMENT_ID, DEPARTMENTS.DEPARTMENT_NAME , SUM(EMPLOYEES.SALARY)
+FROM DEPARTMENTS, EMPLOYEES
+WHERE DEPARTMENTS.DEPARTMENT_ID  = EMPLOYEES.DEPARTMENT_ID GROUP BY EMPLOYEES.DEPARTMENT_ID, DEPARTMENTS.DEPARTMENT_NAME;
+
+-- Realiza una consulta que liste los empleados que están en departamentos que tienen menosde 10 empleados.
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IN 
+(SELECT DEPARTMENT_ID
+FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING COUNT (*) < 10);
