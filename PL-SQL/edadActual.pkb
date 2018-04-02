@@ -18,11 +18,13 @@ BEGIN
   /**
       Añadimos una fecha de nacimiento.
   **/
+
   fNacimiento := '28/05/1997';
 
   /**
       Insertamos la fecha actual en la variable fActual.
   **/
+
   SELECT SYSDATE
   INTO fActual
   FROM DUAL;
@@ -30,6 +32,7 @@ BEGIN
   /**
       Descomponemos la fecha actual, para manejarla mejor.
   **/
+
   diaActual := TO_NUMBER(TO_CHAR(fActual,'DD'));
   mesActual := TO_NUMBER(TO_CHAR(fActual,'MM'));
   annoActual := TO_NUMBER(TO_CHAR(fActual,'YYYY'));
@@ -37,6 +40,7 @@ BEGIN
   /**
       Descomponemos la fecha de nacimiento, para manejarla mejor.
   **/
+
   diaNacimiento := TO_NUMBER(TO_CHAR(fNacimiento,'DD'));
   mesNacimiento := TO_NUMBER(TO_CHAR(fNacimiento,'MM'));
   annoNacimiento := TO_NUMBER(TO_CHAR(fNacimiento,'YYYY'));
@@ -44,11 +48,13 @@ BEGIN
   /**
       Calculamos la edad.
   **/
+
   edad := annoActual - annoNacimiento;
 
   /**
       Comprobamos los rangos de meses y dias para sacar la edad exacta.
   **/
+
   IF mesActual < mesNacimiento THEN
 
     edad := edad - 1;
@@ -60,6 +66,10 @@ BEGIN
   END IF;
 
 
+  /**
+      Imprimimos por consola un mensaje, para comprobar que todo esta correcto.
+  **/
+  
   DBMS_OUTPUT.PUT_LINE('Hoy a fecha de ' || fActual || ' tienes ' || edad || ' años.' );
 
 END;
