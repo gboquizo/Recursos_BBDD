@@ -18,7 +18,7 @@ BEGIN
 
   /**
     Comprobamos el nuevo valor del campo resuelto, después del insert con :new.resuelto, y hacemos los updates
-    correspondientes para actualizar los puntos en funcion del valor del campo resuelto. Actualizando los valores
+    correspondientes para actualizar los puntos en función del valor del campo resuelto. Actualizando los valores
     solo del usuario al que le corresponde para ello usamos el :new.id_alumno, que nos sirve al ser foreign key.
   **/
   IF :new.resuelto = 's' THEN
