@@ -82,3 +82,10 @@ INSERT INTO equipos (id,nombre) VALUES (1,'1DAW');
 INSERT INTO equipos (id,nombre) VALUES (2,'2DAW');
 INSERT INTO equipos (id,nombre) VALUES (3,'1ASIR');
 INSERT INTO equipos (id,nombre) VALUES (4,'2ASIR');
+
+-- Actualizaciones y mejoras --
+ALTER TABLE PARTIDOS
+ADD jugado varchar2(50);
+
+ALTER TABLE PARTIDOS
+ADD CONSTRAINT CHCK_PARTIDOS CHECK ( jugado in ('Jugado', 'Jugando' , 'Sin jugar'));
