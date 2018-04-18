@@ -15,6 +15,11 @@ CREATE TABLE equipos (
 
   id integer,
   nombre varchar2(255),
+  PE number,
+  PP number,
+  PG number,
+  PJ number,
+  PTOS number,
 
   primary key (id)
 );
@@ -25,8 +30,7 @@ CREATE TABLE partidos (
 
   idEquipoLocal integer,
   idEquipoVisitante integer,
-  fecha date,
-  hora time,
+  fecha_hora timestamp,
   golesLocal integer,
   golesVisitante integer,
 
