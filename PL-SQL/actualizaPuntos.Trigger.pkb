@@ -21,14 +21,14 @@ BEGIN
     correspondientes para actualizar los puntos en función del valor del campo resuelto. Actualizando los valores
     solo del usuario al que le corresponde para ello usamos el :new.id_alumno, que nos sirve al ser foreign key.
   **/
-  IF :new.resuelto = 's' THEN
+  IF :new.resuelto = 's' OR :new.resuelto = 'S'  THEN
 
         UPDATE Alumnos
         SET PTOS = (NVL(PTOS,0) + 1)
         WHERE ID = :new.ID_ALUMNO;
 
 
-  ELSIF :new.resuelto = 'n' THEN
+  ELSIF :new.resuelto = 'n' OR :new.resuelto = 'N' THEN
 
     UPDATE Alumnos
     SET PTOS = (NVL(PTOS,0) - 1)

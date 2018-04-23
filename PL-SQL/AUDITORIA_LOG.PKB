@@ -14,7 +14,7 @@ BEGIN
 
     SELECT USER INTO USUARIO FROM DUAL;
 
-    SELECT SYSDATE INTO fecha_hora FROM DUAL;
+    SELECT systimestamp INTO fecha_hora FROM DUAL;
 
 
 

@@ -20,6 +20,9 @@ CREATE TABLE equipos (
   PG number,
   PJ number,
   PTOS number,
+  GF number,
+  GC number,
+  DF number,
 
   primary key (id)
 );
@@ -90,6 +93,7 @@ INSERT INTO equipos (id,nombre) VALUES (4,'2ASIR');
 -- Actualizaciones y mejoras --
 ALTER TABLE PARTIDOS
 ADD jugado varchar2(50);
+
 
 ALTER TABLE PARTIDOS
 ADD CONSTRAINT CHCK_PARTIDOS CHECK ( jugado in ('Jugado', 'Jugando' , 'Sin jugar'));
