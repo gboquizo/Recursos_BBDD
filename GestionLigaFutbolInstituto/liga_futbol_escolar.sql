@@ -41,15 +41,14 @@ CREATE TABLE partidos (
 
 );
 
-CREATE TABLE goles (
+CREATE TABLE AUDITORIA (
 
-  id integer,
-  idPartido integer,
-  idJugadorMarca integer,
-  minGol integer,
+  fecha_hora timestamp,
+  usuario varchar2(255),
+  operacion varchar2(255),
 
-  primary key (id)
 
+  primary key (fecha_hora)
 );
 
 CREATE TABLE arbitros (
