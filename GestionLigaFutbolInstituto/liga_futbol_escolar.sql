@@ -72,11 +72,6 @@ ADD CONSTRAINT fk_equipo_local FOREIGN KEY (idEquipoLocal) REFERENCES equipos(id
 ALTER TABLE partidos
 ADD CONSTRAINT fk_equipo_visitante FOREIGN KEY (idEquipoVisitante) REFERENCES equipos(id);
 
-ALTER TABLE goles
-ADD CONSTRAINT fk_gol_partido FOREIGN KEY (idPartido) REFERENCES partidos(id);
-
-ALTER TABLE goles
-ADD CONSTRAINT fk_jugador_marca FOREIGN KEY (idJugadorMarca) REFERENCES jugadores(id);
 
 -- INSERCCIÓN DE DATOS --
 
@@ -90,9 +85,6 @@ INSERT INTO equipos (id,nombre) VALUES (3,'1ASIR');
 INSERT INTO equipos (id,nombre) VALUES (4,'2ASIR');
 
 -- Actualizaciones y mejoras --
-ALTER TABLE PARTIDOS
-ADD jugado varchar2(50);
-
 
 ALTER TABLE PARTIDOS
 ADD CONSTRAINT CHCK_PARTIDOS CHECK ( jugado in ('Jugado', 'Jugando' , 'Sin jugar'));
