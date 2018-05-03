@@ -33,6 +33,7 @@ CREATE TABLE partidos (
 
   idEquipoLocal integer,
   idEquipoVisitante integer,
+  estado varchar2(50),
   fecha_hora timestamp,
   golesLocal integer,
   golesVisitante integer,
@@ -45,20 +46,10 @@ CREATE TABLE AUDITORIA (
 
   fecha_hora timestamp,
   usuario varchar2(255),
-  operacion varchar2(255),
+  operacion CLOB,
 
 
   primary key (fecha_hora)
-);
-
-CREATE TABLE arbitros (
-
-  id integer,
-  nombre varchar2(255),
-  apellido1 varchar2(255),
-  apellido2 varchar2(255),
-
-  primary key (id)
 );
 
 -- Foreign keys --
@@ -71,11 +62,3 @@ ADD CONSTRAINT fk_equipo_local FOREIGN KEY (idEquipoLocal) REFERENCES equipos(id
 
 ALTER TABLE partidos
 ADD CONSTRAINT fk_equipo_visitante FOREIGN KEY (idEquipoVisitante) REFERENCES equipos(id);
-
-
-
-
--- Actualizaciones y mejoras --
-
-ALTER TABLE PARTIDOS
-ADD CONSTRAINT CHCK_PARTIDOS CHECK ( jugado in ('Jugado', 'Jugando' , 'Sin jugar'));
