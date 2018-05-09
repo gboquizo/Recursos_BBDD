@@ -25,7 +25,7 @@ WHERE REGIONS.REGION_ID = COUNTRIES.REGION_ID;
 -- 4 Realiza una consulta que muestre el código, nombre, apellido, inicio y fin del historial de trabajo de los empleados.
 SELECT EMPLOYEES.EMPLOYEE_ID, EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME, JOB_HISTORY.START_DATE, JOB_HISTORY.END_DATE, JOBS.JOB_TITLE
 FROM EMPLOYEES, JOB_HISTORY, JOBS
-WHERE EMPLOYEES.EMPLOYEE_ID = JOB_HISTORY.EMPLOYEE_ID AND 
+WHERE EMPLOYEES.EMPLOYEE_ID = JOB_HISTORY.EMPLOYEE_ID AND
 JOB_HISTORY.JOB_ID = JOBS.JOB_ID;
 
 
@@ -51,9 +51,9 @@ FROM REGIONS , LOCATIONS, COUNTRIES
 WHERE REGIONS.REGION_ID = COUNTRIES.REGION_ID AND
 COUNTRIES.COUNTRY_ID = LOCATIONS.COUNTRY_ID AND LOCATIONS.LOCATION_ID > 2400;
 
---  Desarrolla una consulta que muestre el código de región con un alias de Región, el nombre de la región con una etiqueta Nombre Región; 
--- una cadena string (concatenación) con: "Código País: CA Nombre: Canadá ", donde CA es el código de país y Canadá es el nombre del país 
---con etiqueta País; el código de localización con etiqueta Localización; la dirección de calle con etiqueta Dirección y el código postal 
+--  Desarrolla una consulta que muestre el código de región con un alias de Región, el nombre de la región con una etiqueta Nombre Región;
+-- una cadena string (concatenación) con: "Código País: CA Nombre: Canadá ", donde CA es el código de país y Canadá es el nombre del país
+--con etiqueta País; el código de localización con etiqueta Localización; la dirección de calle con etiqueta Dirección y el código postal
 --con etiqueta "Código Postal”. No no deben aparecer códigos postales que sean nulos.
 
 SELECT REGIONS.REGION_ID AS Region, REGIONS.REGION_NAME AS Nombre_region, 'Codigo pais ' || COUNTRIES.COUNTRY_ID || 'Nombre ' || COUNTRIES.COUNTRY_NAME,
@@ -62,7 +62,7 @@ FROM REGIONS,COUNTRIES,LOCATIONS
 WHERE REGIONS.REGION_ID = COUNTRIES.REGION_ID AND
 LOCATIONS.COUNTRY_ID = COUNTRIES.COUNTRY_ID AND LOCATIONS.POSTAL_CODE IS NOT NULL;
 
--- 15 Escribe una sola consulta que liste los empleados de los departamentos 10, 20 y 80 que fueron contratados hace mas de 180 días, 
+-- 15 Escribe una sola consulta que liste los empleados de los departamentos 10, 20 y 80 que fueron contratados hace mas de 180 días,
 -- que ganan una comisión superior al 20% y cuyo nombre o apellido comienza con la letra 'J'.
 
 SELECT FIRST_NAME
@@ -82,7 +82,7 @@ LOCATIONS.COUNTRY_ID = COUNTRIES.COUNTRY_ID AND
 DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID
 GROUP BY REGIONS.REGION_NAME;
 
--- 28 Realice una consulta que muestre el salario que paga cada departamento (sin incluir comisión), ordenado descendentemente por salario pagado. 
+-- 28 Realice una consulta que muestre el salario que paga cada departamento (sin incluir comisión), ordenado descendentemente por salario pagado.
 --Se mostrara el código y nombre del departamento y el salario que paga.
 
 SELECT DEPARTMENTS.DEPARTMENT_NAME,SUM(EMPLOYEES.SALARY)
@@ -99,3 +99,28 @@ WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID AND
 DEPARTMENTS.LOCATION_ID =  LOCATIONS.LOCATION_ID AND
 EMPLOYEES.SALARY >= 5000
 GROUP BY LOCATIONS.CITY HAVING COUNT (*) >=3;
+
+-- Realice una consulta que muestre los empleados que son gerentes (manager_id) y el número de empleados subordinados a cada uno,
+-- ordenados descendentemente por número de subordinado. Excluya a los gerentes que tienen 5 empleados subordinados o menos.
+
+SELECT DISTINCT E1.FIRST_NAME, COUNT(E1.EMPLOYEE_ID)
+FROM EMPLOYEES E1, EMPLOYEES E2
+WHERE E2.MANAGER_ID = E1.EMPLOYEE_ID group by E1.FIRST_NAME;
+
+-- Realice una consulta que muestre el número de departamentos por región.
+
+SELECT REGIONS.REGION_NAME,COUNT(*)
+FROM DEPARTMENTS, COUNTRIES, LOCATIONS, REGIONS
+WHERE
+COUNTRIES.COUNTRY_ID = LOCATIONS.COUNTRY_ID AND COUNTRIES.REGION_ID = REGIONS.REGION_ID AND DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID
+GROUP BY REGIONS.REGION_ID,REGIONS.REGION_NAME;
+
+-- 35. Desarrolla una consulta que muestre código de departamento, el nombre y apellido de los empleados de los departamentos
+-- donde trabajan empleados con nombre 'John'
+
+SELECT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IN
+(SELECT DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '%John%');

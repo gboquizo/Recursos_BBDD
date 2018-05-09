@@ -1,5 +1,5 @@
 create or replace PROCEDURE CREAR_ENFRENTAMIENTOS AS
-
+DECLARE
     CURSOR Cequipos_1 IS
     SELECT * FROM equipos
     ORDER BY equipos.id DESC;
@@ -31,5 +31,5 @@ BEGIN
         END LOOP;
       END LOOP;
 
-
+END;
 END CREAR_ENFRENTAMIENTOS;
