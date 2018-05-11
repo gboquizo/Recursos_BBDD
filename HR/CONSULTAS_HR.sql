@@ -124,3 +124,43 @@ WHERE DEPARTMENT_ID IN
 (SELECT DEPARTMENT_ID
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE '%John%');
+
+-- Desarrolle una consulta que liste el código, nombre y apellido de los empleados y sus respectivos fejes con titulo Empleado y Jefe:
+
+SELECT E1.EMPLOYEE_ID, E1.FIRST_NAME, E1.LAST_NAME, E2.FIRST_NAME AS "Jefe"
+FROM EMPLOYEES E1, EMPLOYEES E2
+WHERE E1.EMPLOYEE_ID = E2.MANAGER_ID;
+
+-- Realice una consulta que muestre el número de departamentos por región.
+
+SELECT REGIONS.REGION_NAME,COUNT(*)
+FROM DEPARTMENTS, LOCATIONS, COUNTRIES, REGIONS
+WHERE DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID AND LOCATIONS.COUNTRY_ID = COUNTRIES.COUNTRY_ID AND COUNTRIES.REGION_ID = REGIONS.REGION_ID
+GROUP BY REGIONS.REGION_NAME;
+
+-- 28. Realice una consulta que muestre el salario que paga cada departamento (sin incluir comisión),
+-- ordenado descendentemente por salario pagado. Se mostrara el código y nombre del departamento y el salario que paga.
+
+SELECT DEPARTMENTS.DEPARTMENT_ID, DEPARTMENTS.DEPARTMENT_NAME, SUM(EMPLOYEES.SALARY) AS "PAGOS SALARIOS"
+FROM EMPLOYEES, DEPARTMENTS
+WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+GROUP BY DEPARTMENTS.DEPARTMENT_ID, DEPARTMENTS.DEPARTMENT_NAME;
+
+-- 32. Realiza una consulta que liste el número de empleados por ciudad, que ganan como mínimo 5000 en concepto de salario.
+-- Omite las ciudades que tengan menos de 3 empleados con ese salario.
+
+SELECT L.CITY,COUNT(*)
+FROM EMPLOYEES E, DEPARTMENTS D, LOCATIONS L
+WHERE E.DEPARTMENT_ID = D.DEPARTMENT_ID AND D.LOCATION_ID = L.LOCATION_ID
+GROUP BY L.CITY HAVING COUNT(*) > 3 ;
+
+-- 42. Desarrolla una consulta que muestre a todos los empleados que no estén trabajando en el departamento 30
+-- y que ganen más que todos los empleados que trabajan en el departamento 30.
+
+
+SELECT E.FIRST_NAME, E.DEPARTMENT_ID
+FROM EMPLOYEES E
+WHERE E.DEPARTMENT_ID <> 30 AND E.SALARY >
+(SELECT MAX(SALARY)
+FROM EMPLOYEES
+WHERE EMPLOYEES.DEPARTMENT_ID = 30);
